@@ -14,24 +14,24 @@
     --accent: #4658e8; --shadow: 0 1px 2px rgba(16,19,26,.05), 0 4px 14px rgba(16,19,26,.05);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif; background: var(--bg); color: var(--ink); padding: 16px; max-width: 1100px; margin: 0 auto; -webkit-font-smoothing: antialiased; }
-  .num { font-variant-numeric: tabular-nums; }
-  .hero { background: linear-gradient(135deg, #101828 0%, #1b2a4a 60%, #233a68 100%); color: #fff; border-radius: 16px; padding: 22px 24px 20px; box-shadow: var(--shadow); margin-bottom: 12px; position: relative; overflow: hidden; }
-  .hero::after { content: ''; position: absolute; right: -60px; top: -60px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(90,120,255,.25), transparent 70%); }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans Arabic", Tahoma, sans-serif; background: var(--bg); color: var(--ink); padding: 16px; max-width: 1100px; margin: 0 auto; -webkit-font-smoothing: antialiased; }
+  .num { font-variant-numeric: tabular-nums; direction: ltr; unicode-bidi: embed; }
+  .hero { background: linear-gradient(135deg, #101828 0%, #1b2a4a 60%, #233a68 100%); color: #fff; border-radius: 16px; padding: 20px 22px 18px; box-shadow: var(--shadow); margin-bottom: 12px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; inset-inline-end: -60px; top: -60px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(90,120,255,.25), transparent 70%); }
   .hero .row1 { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  .hero h1 { font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #aab4c8; }
-  .live { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; letter-spacing: .08em; color: #6ee7a8; }
+  .hero h1 { font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #aab4c8; }
+  .live { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; letter-spacing: .06em; color: #6ee7a8; }
   .live .dot { width: 7px; height: 7px; border-radius: 50%; background: #34d382; animation: pulse 1.6s infinite; }
   @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(52,211,130,.5);} 50% { box-shadow: 0 0 0 5px rgba(52,211,130,0);} }
-  .modebadge { font-size: 10px; font-weight: 700; letter-spacing: .06em; color: #ffd28a; border: 1px solid rgba(255,210,138,.45); padding: 2px 8px; border-radius: 20px; }
-  .hero .value { font-size: 40px; font-weight: 800; letter-spacing: -.02em; margin: 10px 0 8px; }
+  .modebadge { font-size: 10px; font-weight: 700; color: #ffd28a; border: 1px solid rgba(255,210,138,.45); padding: 2px 8px; border-radius: 20px; }
+  .hero .value { font-size: 38px; font-weight: 800; letter-spacing: -.02em; margin: 10px 0 8px; }
   .chips { display: flex; gap: 8px; flex-wrap: wrap; }
   .chip { font-size: 12px; font-weight: 600; padding: 4px 11px; border-radius: 20px; background: rgba(255,255,255,.1); color: #cdd5e3; }
   .chip.up { background: rgba(52,211,130,.16); color: #6ee7a8; }
   .chip.down { background: rgba(255,107,92,.16); color: #ffa79c; }
   .hero .asof { font-size: 11px; color: #8b96ab; margin-top: 10px; }
-  .hero .actions { position: absolute; top: 18px; right: 18px; display: flex; gap: 8px; z-index: 2; }
-  .btn { border: 0; border-radius: 10px; padding: 8px 14px; font-size: 12px; font-weight: 700; cursor: pointer; }
+  .hero .actions { position: absolute; top: 16px; inset-inline-end: 16px; display: flex; gap: 8px; z-index: 2; }
+  .btn { border: 0; border-radius: 10px; padding: 8px 14px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: inherit; }
   .btn.reset { background: #ff5c4d; color: #fff; }
   .btn.reset:hover { background: #e8493a; }
   .btn.ghost { background: rgba(255,255,255,.12); color: #cdd5e3; }
@@ -39,23 +39,22 @@
   .btn.sub { background: #eef0f4; color: var(--ink2); }
   .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 12px; }
   .stat { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px; box-shadow: var(--shadow); }
-  .stat .label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--ink3); margin-bottom: 4px; }
+  .stat .label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: var(--ink3); margin-bottom: 4px; }
   .stat .v { font-size: 17px; font-weight: 750; }
   .stat .s { font-size: 11px; color: var(--ink2); margin-top: 2px; }
-  .panel { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px 18px; box-shadow: var(--shadow); margin-bottom: 12px; }
-  .panel h2 { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink2); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .panel { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 14px 16px; box-shadow: var(--shadow); margin-bottom: 12px; }
+  .panel h2 { font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--ink2); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .panel h2::before { content: ''; width: 4px; height: 14px; border-radius: 3px; background: var(--accent); }
   .grid2 { display: grid; grid-template-columns: 3fr 2fr; gap: 12px; margin-bottom: 12px; }
-  @media (max-width: 900px) { .grid2 { grid-template-columns: 1fr; } }
   .grid2 .panel { margin-bottom: 0; }
   .chartbox { position: relative; height: 240px; }
-  .toggle { margin-left: auto; display: flex; background: #eef0f4; border-radius: 8px; padding: 2px; }
-  .toggle button { font-size: 11px; font-weight: 600; border: 0; background: transparent; color: var(--ink2); padding: 4px 12px; cursor: pointer; border-radius: 6px; }
+  .toggle { margin-inline-start: auto; display: flex; background: #eef0f4; border-radius: 8px; padding: 2px; }
+  .toggle button { font-size: 11px; font-weight: 600; border: 0; background: transparent; color: var(--ink2); padding: 4px 12px; cursor: pointer; border-radius: 6px; font-family: inherit; }
   .toggle button.on { background: #fff; color: var(--ink); box-shadow: 0 1px 3px rgba(16,19,26,.12); }
   table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-  th { text-align: right; font-weight: 600; color: var(--ink3); font-size: 10px; text-transform: uppercase; letter-spacing: .05em; padding: 6px 8px; border-bottom: 1px solid var(--border); }
-  th:first-child, td:first-child { text-align: left; }
-  td { text-align: right; padding: 9px 8px; border-bottom: 1px solid #f2f3f6; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  th { text-align: end; font-weight: 600; color: var(--ink3); font-size: 10px; text-transform: uppercase; letter-spacing: .04em; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+  th:first-child, td:first-child { text-align: start; }
+  td { text-align: end; padding: 9px 8px; border-bottom: 1px solid #f2f3f6; font-variant-numeric: tabular-nums; white-space: nowrap; }
   tbody tr:hover { background: #f8f9fc; }
   .tk { display: inline-flex; align-items: center; gap: 7px; font-weight: 750; }
   .tk .sd { width: 8px; height: 8px; border-radius: 3px; flex: none; }
@@ -67,7 +66,7 @@
   tr.cashrow td { color: var(--ink2); background: #fafbfc; }
   .trade { display: flex; gap: 12px; padding: 10px 2px; border-bottom: 1px solid #f2f3f6; align-items: baseline; flex-wrap: wrap; }
   .trade:last-child { border-bottom: 0; }
-  .ta { font-size: 10px; font-weight: 800; letter-spacing: .05em; padding: 3px 9px; border-radius: 12px; flex: none; }
+  .ta { font-size: 10px; font-weight: 800; letter-spacing: .04em; padding: 3px 9px; border-radius: 12px; flex: none; }
   .ta.b { background: var(--green-bg); color: var(--green); }
   .ta.s { background: var(--red-bg); color: var(--red); }
   .ta.r { background: #eef0f4; color: var(--ink2); }
@@ -75,147 +74,242 @@
   .trade .td2 { color: var(--ink2); font-size: 12px; flex: none; }
   .trade .tw { color: var(--ink2); font-size: 12px; flex: 1 1 260px; }
   .trade .tdate { color: var(--ink3); font-size: 11px; flex: none; }
-  .footnote { font-size: 11px; color: var(--ink3); margin: 4px 2px 8px; line-height: 1.5; }
+  .footnote { font-size: 11px; color: var(--ink3); margin: 4px 2px 8px; line-height: 1.6; }
   .spinner { text-align: center; color: var(--ink3); font-size: 12.5px; padding: 24px 0; }
-  /* trade box */
   .tradebar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-  .tradebar select, .tradebar input { border: 1px solid var(--border); border-radius: 10px; padding: 8px 10px; font-size: 13px; background: #fff; color: var(--ink); }
-  .tradebar input[type=text] { width: 90px; text-transform: uppercase; }
+  .tradebar select, .tradebar input { border: 1px solid var(--border); border-radius: 10px; padding: 9px 10px; font-size: 13px; background: #fff; color: var(--ink); font-family: inherit; }
+  .tradebar input[type=text] { width: 92px; text-transform: uppercase; }
   .tradebar input[type=number] { width: 130px; }
   #trademsg { font-size: 12px; margin-top: 8px; }
-  /* modal */
   .overlay { position: fixed; inset: 0; background: rgba(16,19,26,.55); display: none; align-items: center; justify-content: center; z-index: 50; padding: 16px; }
   .overlay.show { display: flex; }
-  .modal { background: #fff; border-radius: 18px; padding: 26px; max-width: 520px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,.25); }
+  .modal { background: #fff; border-radius: 18px; padding: 24px; max-width: 520px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,.25); max-height: 90vh; overflow-y: auto; }
   .modal h3 { font-size: 18px; margin-bottom: 6px; }
-  .modal p { font-size: 13px; color: var(--ink2); line-height: 1.55; margin-bottom: 14px; }
-  .choice { display: block; width: 100%; text-align: left; border: 1.5px solid var(--border); background: #fff; border-radius: 14px; padding: 14px 16px; margin-bottom: 10px; cursor: pointer; }
+  .modal p { font-size: 13px; color: var(--ink2); line-height: 1.6; margin-bottom: 14px; }
+  .choice { display: block; width: 100%; text-align: start; border: 1.5px solid var(--border); background: #fff; border-radius: 14px; padding: 14px 16px; margin-bottom: 10px; cursor: pointer; font-family: inherit; }
   .choice:hover { border-color: var(--accent); background: #f7f8ff; }
   .choice b { display: block; font-size: 14px; margin-bottom: 3px; }
-  .choice span { font-size: 12px; color: var(--ink2); line-height: 1.5; }
+  .choice span { font-size: 12px; color: var(--ink2); line-height: 1.6; }
   .modal .rowbtns { display: flex; gap: 8px; justify-content: flex-end; margin-top: 6px; }
-  .modal input[type=text] { width: 100%; border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; font-size: 13px; margin-bottom: 12px; }
-  .warn { background: #fff4d6; color: #99621e; font-size: 12px; padding: 8px 12px; border-radius: 10px; margin-bottom: 12px; line-height: 1.5; }
+  .modal input[type=text] { width: 100%; border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; font-size: 13px; margin-bottom: 12px; font-family: inherit; }
+  .warn { background: #fff4d6; color: #99621e; font-size: 12px; padding: 8px 12px; border-radius: 10px; margin-bottom: 12px; line-height: 1.6; }
+
+  /* ------ MOBILE ------ */
+  @media (max-width: 700px) {
+    body { padding: 10px; }
+    .hero { padding: 14px 16px 16px; }
+    .hero .actions { position: static; justify-content: flex-end; margin-bottom: 10px; }
+    .hero .value { font-size: 30px; margin: 8px 0 8px; }
+    .chip { font-size: 11px; padding: 3px 9px; }
+    .stats { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .stat .v { font-size: 15px; }
+    .grid2 { grid-template-columns: 1fr; }
+    .chartbox { height: 210px; }
+    .panel { padding: 12px 12px; }
+    table { font-size: 11.5px; }
+    td, th { padding: 7px 5px; }
+    .tablewrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .tradebar select, .tradebar input, .tradebar button { flex: 1 1 45%; }
+    .trade .tw { flex-basis: 100%; }
+    .btn { padding: 8px 12px; }
+  }
 </style>
 </head>
 <body>
 
   <div class="hero">
     <div class="actions">
-      <button class="btn ghost" id="btnKey" title="Change API key">⚙</button>
-      <button class="btn reset" id="btnReset">↺ Reset $1M</button>
+      <button class="btn ghost" id="btnLang">عربي</button>
+      <button class="btn ghost" id="btnKey" title="API key">⚙</button>
+      <button class="btn reset" id="btnReset">↺ <span data-i18n="reset">Reset $1M</span></button>
     </div>
     <div class="row1">
-      <h1>Virtual $1M US Portfolio</h1>
-      <span class="live"><span class="dot"></span>LIVE</span>
+      <h1 data-i18n="title">Virtual $1M US Portfolio</h1>
+      <span class="live"><span class="dot"></span><span data-i18n="live">LIVE</span></span>
       <span class="modebadge" id="modebadge">—</span>
     </div>
     <div class="value num" id="totval">—</div>
     <div class="chips">
-      <span class="chip num" id="daychip">today —</span>
-      <span class="chip num" id="totchip">since start —</span>
-      <span class="chip num" id="alphachip">vs S&amp;P 500 —</span>
+      <span class="chip" id="daychip">—</span>
+      <span class="chip" id="totchip">—</span>
+      <span class="chip" id="alphachip">—</span>
     </div>
-    <div class="asof" id="asof">loading…</div>
+    <div class="asof" id="asof">…</div>
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="label">Total P&amp;L</div><div class="v num" id="plval">—</div><div class="s num" id="plpct"></div></div>
-    <div class="stat"><div class="label">S&amp;P 500 since start</div><div class="v num" id="spyret">—</div><div class="s num" id="spypx"></div></div>
-    <div class="stat"><div class="label">Invested</div><div class="v num" id="invval">—</div><div class="s num" id="invw"></div></div>
-    <div class="stat"><div class="label">Cash</div><div class="v num" id="cash">—</div><div class="s num" id="cashw"></div></div>
+    <div class="stat"><div class="label" data-i18n="totalPL">Total P&amp;L</div><div class="v num" id="plval">—</div><div class="s num" id="plpct"></div></div>
+    <div class="stat"><div class="label" data-i18n="spySince">S&amp;P 500 since start</div><div class="v num" id="spyret">—</div><div class="s num" id="spypx"></div></div>
+    <div class="stat"><div class="label" data-i18n="invested">Invested</div><div class="v num" id="invval">—</div><div class="s num" id="invw"></div></div>
+    <div class="stat"><div class="label" data-i18n="cash">Cash</div><div class="v num" id="cash">—</div><div class="s num" id="cashw"></div></div>
   </div>
 
   <div class="panel">
-    <h2>Trade (manual)</h2>
+    <h2 data-i18n="tradeManual">Trade (manual)</h2>
     <div class="tradebar">
-      <select id="tAction"><option>BUY</option><option>SELL</option></select>
+      <select id="tAction"><option value="BUY" data-i18n="buy">BUY</option><option value="SELL" data-i18n="sell">SELL</option></select>
       <input type="text" id="tTicker" placeholder="TICKER">
-      <select id="tUnit"><option value="usd">$ amount</option><option value="sh">shares</option></select>
+      <select id="tUnit"><option value="usd" data-i18n="usdAmt">$ amount</option><option value="sh" data-i18n="shares">shares</option></select>
       <input type="number" id="tQty" placeholder="10000" min="0" step="any">
-      <button class="btn primary" id="tGo">Execute at live price</button>
+      <button class="btn primary" id="tGo" data-i18n="execute">Execute at live price</button>
     </div>
     <div id="trademsg"></div>
   </div>
 
   <div class="grid2">
     <div class="panel">
-      <h2>Performance vs S&amp;P 500</h2>
+      <h2 data-i18n="perf">Performance vs S&amp;P 500</h2>
       <div class="chartbox"><canvas id="perf"></canvas></div>
     </div>
     <div class="panel">
-      <h2>Allocation <span class="toggle"><button id="btnTk" class="on">Ticker</button><button id="btnSec">Sector</button></span></h2>
+      <h2><span data-i18n="alloc">Allocation</span> <span class="toggle"><button id="btnTk" class="on" data-i18n="byTicker">Ticker</button><button id="btnSec" data-i18n="bySector">Sector</button></span></h2>
       <div class="chartbox"><canvas id="alloc"></canvas></div>
     </div>
   </div>
 
   <div class="panel">
-    <h2>Positions</h2>
-    <div id="tablebox"><div class="spinner">Loading…</div></div>
+    <h2 data-i18n="positions">Positions</h2>
+    <div id="tablebox"><div class="spinner" data-i18n="loading">Loading…</div></div>
   </div>
 
   <div class="grid2">
     <div class="panel">
-      <h2>Today's Movers</h2>
+      <h2 data-i18n="movers">Today's Movers</h2>
       <div class="chartbox" style="height:290px"><canvas id="movers"></canvas></div>
     </div>
     <div class="panel">
-      <h2>Quote Feed</h2>
-      <div id="status" style="font-size:10.5px;color:var(--ink3);line-height:1.6">waiting…</div>
+      <h2 data-i18n="quotes">Quote Feed</h2>
+      <div id="status" style="font-size:10.5px;color:var(--ink3);line-height:1.7">…</div>
     </div>
   </div>
 
   <div class="panel">
-    <h2>Trade Log</h2>
+    <h2 data-i18n="tradeLog">Trade Log</h2>
     <div id="tradelog"></div>
   </div>
 
-  <div class="footnote">Simulation — no real money, not financial advice. Live quotes by <a href="https://finnhub.io" target="_blank">Finnhub</a> (free key). All state (positions, trades, history) is stored in this browser only — clearing site data erases the simulation. Auto-refreshes every 5 minutes.</div>
+  <div class="footnote" id="footnote"></div>
 
-  <!-- API key modal -->
   <div class="overlay" id="keyModal">
     <div class="modal">
-      <h3>Connect live prices</h3>
-      <p>This simulator uses real US market quotes from Finnhub (free). Get a key in ~1 minute: go to <a href="https://finnhub.io/register" target="_blank"><b>finnhub.io/register</b></a>, sign up, copy your API key, paste it here. It's stored only in your browser.</p>
-      <input type="text" id="keyInput" placeholder="Paste your Finnhub API key">
-      <div class="rowbtns"><button class="btn primary" id="keySave">Save &amp; start</button></div>
+      <h3 data-i18n="keyTitle">Connect live prices</h3>
+      <p id="keyBody"></p>
+      <input type="text" id="keyInput" placeholder="API key">
+      <div class="rowbtns"><button class="btn primary" id="keySave" data-i18n="keySave">Save &amp; start</button></div>
       <p id="keyErr" style="color:var(--red)"></p>
     </div>
   </div>
 
-  <!-- Reset modal -->
   <div class="overlay" id="resetModal">
     <div class="modal">
-      <h3>Reset to a fresh $1,000,000</h3>
-      <div class="warn">This wipes the current simulation — positions, trade log, and performance history — and starts over at today's real prices.</div>
+      <h3 data-i18n="resetTitle">Reset to a fresh $1,000,000</h3>
+      <div class="warn" data-i18n="resetWarn">This wipes the current simulation — positions, trade log, and performance history — and starts over at today's real prices.</div>
       <button class="choice" id="chAuto">
-        <b>🤖 Auto strategy (high risk / high reward)</b>
-        <span>Distributes the $1M across a high-beta AI/growth basket (NVDA, AMD, MU, AVGO, PLTR, CRWV, TSLA, META, GOOGL, AMZN, VRT) at live prices, tilting extra weight into stocks dipping today and trimming ones that spiked. Rule-based automated allocator.</span>
+        <b data-i18n="autoTitle">🤖 Auto strategy (high risk / high reward)</b>
+        <span data-i18n="autoDesc">Distributes the $1M across a high-beta AI/growth basket (NVDA, AMD, MU, AVGO, PLTR, CRWV, TSLA, META, GOOGL, AMZN, VRT) at live prices, tilting extra weight into stocks dipping today. Rule-based automated allocator.</span>
       </button>
       <button class="choice" id="chManual">
-        <b>✋ Manual</b>
-        <span>Start with $1,000,000 in cash. You buy and sell whatever you want using the Trade box — every order executes at the live market price.</span>
+        <b data-i18n="manTitle">✋ Manual</b>
+        <span data-i18n="manDesc">Start with $1,000,000 in cash. You buy and sell whatever you want using the Trade box — every order executes at the live market price.</span>
       </button>
-      <div class="rowbtns"><button class="btn sub" id="chCancel">Cancel</button></div>
+      <div class="rowbtns"><button class="btn sub" id="chCancel" data-i18n="cancel">Cancel</button></div>
     </div>
   </div>
 
 <script>
 'use strict';
-const LS_KEY = 'v1m_sim_state_v1', LS_API = 'v1m_finnhub_key';
+const LS_KEY = 'v1m_sim_state_v1', LS_API = 'v1m_finnhub_key', LS_LANG = 'v1m_lang';
+
+/* ---------- i18n ---------- */
+const I18N = {
+  en: {
+    title:'Virtual $1M US Portfolio', live:'LIVE', reset:'Reset $1M',
+    totalPL:'Total P&L', spySince:'S&P 500 since start', invested:'Invested', cash:'Cash',
+    tradeManual:'Trade (manual)', buy:'BUY', sell:'SELL', usdAmt:'$ amount', shares:'shares', execute:'Execute at live price',
+    perf:'Performance vs S&P 500', alloc:'Allocation', byTicker:'Ticker', bySector:'Sector',
+    positions:'Positions', movers:"Today's Movers", quotes:'Quote Feed', tradeLog:'Trade Log', loading:'Loading…',
+    keyTitle:'Connect live prices', keySave:'Save & start',
+    keyBody:'This simulator uses real US market quotes from Finnhub (free). Get a key in ~1 minute: open <a href="https://finnhub.io/register" target="_blank"><b>finnhub.io/register</b></a>, sign up, copy your API key and paste it here. It is stored only in your browser.',
+    resetTitle:'Reset to a fresh $1,000,000',
+    resetWarn:'This wipes the current simulation — positions, trade log, and performance history — and starts over at today\'s real prices.',
+    autoTitle:'🤖 Auto strategy (high risk / high reward)',
+    autoDesc:'Distributes the $1M across a high-beta AI/growth basket (NVDA, AMD, MU, AVGO, PLTR, CRWV, TSLA, META, GOOGL, AMZN, VRT) at live prices, tilting extra weight into stocks dipping today. Rule-based automated allocator.',
+    manTitle:'✋ Manual', manDesc:'Start with $1,000,000 in cash. You buy and sell whatever you want using the Trade box — every order executes at the live market price.',
+    cancel:'Cancel',
+    today:'today', since:'since', vsSpy:'vs S&P 500', alpha:'alpha', na:'n/a',
+    onCapital:'on', deployed:'deployed', posCount:'positions', ofPortfolio:'of portfolio',
+    thTicker:'Ticker', thSh:'Sh', thAvg:'Avg Cost', thPx:'Price', thDay:'Day', thVal:'Value', thPL:'Total P&L', thWt:'Wt',
+    valued:'valued', autoRef:'auto-refreshes every 5 min', fetching:'fetching live quotes…', resetting:'resetting — fetching live prices…',
+    allCash:'All cash — no positions yet.', noTrades:'No trades yet — use the Trade box above.',
+    noQuote:'No quote', quoteUnavail:'quote unavailable',
+    footnote:'Simulation — no real money, not financial advice. Live quotes by <a href="https://finnhub.io" target="_blank">Finnhub</a> (free key). All state is stored in this browser only — clearing site data erases the simulation. Auto-refreshes every 5 minutes.',
+    mEnterTicker:'Enter a ticker and a positive amount.', mGetting:'Getting live quote for', mNoQuote:'No quote for', mCheckTicker:'— check the ticker.',
+    mTooSmall:'Amount too small for 1 share at', mNoCash:'Not enough cash: need', mHave:'have', mBought:'Bought', mSold:'Sold', mOnlyHold:'You only hold', mSharesOf:'shares of',
+    mKeyFirst:'Paste a key first.', mKeyTest:'Testing key…', mKeyBad:'Key didn\'t work. Double-check and try again.',
+    modeAI:'AI-ASSISTED', modeAuto:'AUTO STRATEGY', modeMan:'MANUAL',
+    resetWhyAuto:'Fresh $1,000,000 — auto high-risk strategy allocation', resetWhyMan:'Fresh $1,000,000 — manual mode, all cash',
+    autoWhy:'Auto strategy: base', boosted:'(boosted — dip today', trimmed:'(trimmed — spike today', manualOrder:'Manual order', todayPct:'today'
+  },
+  ar: {
+    title:'محفظة افتراضية بمليون دولار — الأسهم الأمريكية', live:'مباشر', reset:'إعادة تعيين المليون',
+    totalPL:'إجمالي الربح/الخسارة', spySince:'‏S&P 500 منذ البداية', invested:'المستثمَر', cash:'النقد',
+    tradeManual:'تداول (يدوي)', buy:'شراء', sell:'بيع', usdAmt:'مبلغ بالدولار', shares:'أسهم', execute:'نفّذ بالسعر المباشر',
+    perf:'الأداء مقابل S&P 500', alloc:'التوزيع', byTicker:'السهم', bySector:'القطاع',
+    positions:'المراكز', movers:'تحركات اليوم', quotes:'الأسعار المباشرة', tradeLog:'سجل الصفقات', loading:'جارٍ التحميل…',
+    keyTitle:'تفعيل الأسعار المباشرة', keySave:'حفظ وبدء',
+    keyBody:'يستخدم هذا المحاكي أسعاراً حقيقية للسوق الأمريكي من Finnhub (مجاناً). احصل على مفتاح خلال دقيقة: افتح <a href="https://finnhub.io/register" target="_blank"><b>finnhub.io/register</b></a> وسجّل، ثم انسخ مفتاح API والصقه هنا. يُحفظ في متصفحك فقط.',
+    resetTitle:'إعادة التعيين إلى مليون دولار جديد',
+    resetWarn:'سيمسح هذا المحاكاة الحالية — المراكز وسجل الصفقات وتاريخ الأداء — ويبدأ من جديد بأسعار اليوم الحقيقية.',
+    autoTitle:'🤖 استراتيجية تلقائية (مخاطرة عالية / عائد عالٍ)',
+    autoDesc:'توزّع المليون دولار على سلة أسهم نمو وذكاء اصطناعي عالية التقلب (NVDA, AMD, MU, AVGO, PLTR, CRWV, TSLA, META, GOOGL, AMZN, VRT) بالأسعار المباشرة، مع وزن إضافي للأسهم المنخفضة اليوم. موزّع آلي قائم على قواعد.',
+    manTitle:'✋ يدوي', manDesc:'ابدأ بمليون دولار نقداً، واشترِ وبِع ما تشاء عبر صندوق التداول — كل أمر يُنفَّذ بسعر السوق المباشر.',
+    cancel:'إلغاء',
+    today:'اليوم', since:'منذ', vsSpy:'مقابل S&P 500', alpha:'ألفا', na:'غير متاح',
+    onCapital:'على', deployed:'مستثمَر', posCount:'مركزاً', ofPortfolio:'من المحفظة',
+    thTicker:'السهم', thSh:'العدد', thAvg:'متوسط التكلفة', thPx:'السعر', thDay:'اليوم', thVal:'القيمة', thPL:'الربح/الخسارة', thWt:'الوزن',
+    valued:'آخر تقييم', autoRef:'يتحدّث تلقائياً كل ٥ دقائق', fetching:'جارٍ جلب الأسعار المباشرة…', resetting:'جارٍ إعادة التعيين وجلب الأسعار…',
+    allCash:'كل الرصيد نقدي — لا مراكز بعد.', noTrades:'لا صفقات بعد — استخدم صندوق التداول أعلاه.',
+    noQuote:'لا يوجد سعر', quoteUnavail:'السعر غير متاح',
+    footnote:'محاكاة — بدون أموال حقيقية وليست نصيحة استثمارية. الأسعار المباشرة من <a href="https://finnhub.io" target="_blank">Finnhub</a> (مفتاح مجاني). تُحفظ كل البيانات في هذا المتصفح فقط — مسح بيانات الموقع يمحو المحاكاة. تحديث تلقائي كل ٥ دقائق.',
+    mEnterTicker:'أدخل رمز السهم ومبلغاً موجباً.', mGetting:'جارٍ جلب السعر المباشر لـ', mNoQuote:'لا يوجد سعر لـ', mCheckTicker:'— تحقق من الرمز.',
+    mTooSmall:'المبلغ أقل من سعر سهم واحد عند', mNoCash:'النقد غير كافٍ: المطلوب', mHave:'المتاح', mBought:'تم شراء', mSold:'تم بيع', mOnlyHold:'لديك فقط', mSharesOf:'سهماً من',
+    mKeyFirst:'الصق المفتاح أولاً.', mKeyTest:'جارٍ اختبار المفتاح…', mKeyBad:'المفتاح لم يعمل. تحقق منه وأعد المحاولة.',
+    modeAI:'بمساعدة الذكاء الاصطناعي', modeAuto:'استراتيجية تلقائية', modeMan:'يدوي',
+    resetWhyAuto:'مليون دولار جديد — توزيع تلقائي عالي المخاطرة', resetWhyMan:'مليون دولار جديد — وضع يدوي، نقد بالكامل',
+    autoWhy:'استراتيجية تلقائية: وزن أساسي', boosted:'(وزن إضافي — انخفاض اليوم', trimmed:'(وزن مخفَّض — ارتفاع اليوم', manualOrder:'أمر يدوي', todayPct:'اليوم'
+  }
+};
+let LANG = localStorage.getItem(LS_LANG) || 'en';
+const t = k => (I18N[LANG] && I18N[LANG][k]) || I18N.en[k] || k;
+
+function applyLang() {
+  document.documentElement.lang = LANG;
+  document.documentElement.dir = LANG === 'ar' ? 'rtl' : 'ltr';
+  document.title = LANG === 'ar' ? 'محاكي المحفظة الافتراضية — مليون دولار' : 'Virtual $1M US Portfolio — Simulator';
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.innerHTML = t(el.getAttribute('data-i18n')); });
+  document.getElementById('keyBody').innerHTML = t('keyBody');
+  document.getElementById('footnote').innerHTML = t('footnote');
+  document.getElementById('btnLang').textContent = LANG === 'ar' ? 'EN' : 'عربي';
+}
+document.getElementById('btnLang').onclick = () => {
+  LANG = LANG === 'ar' ? 'en' : 'ar';
+  localStorage.setItem(LS_LANG, LANG);
+  applyLang();
+  if (LAST) render(); else renderTradeLog();
+};
+
+/* ---------- data ---------- */
 const SECTORS = { NVDA:'Technology', AMD:'Technology', MU:'Technology', AVGO:'Technology', PLTR:'Technology', CRWV:'Technology', MSFT:'Technology', GOOGL:'Communication', META:'Communication', NFLX:'Communication', AMZN:'Consumer', TSLA:'Consumer', COST:'Consumer', VRT:'Industrials', LLY:'Healthcare', JPM:'Financials' };
+const SECTOR_AR = { Technology:'التقنية', Communication:'الاتصالات', Consumer:'الاستهلاك', Industrials:'الصناعة', Healthcare:'الرعاية الصحية', Financials:'المالية', Other:'أخرى', Cash:'نقد' };
 const SECTOR_COLORS = { Technology:'#4658e8', Communication:'#0ba5ec', Consumer:'#f79009', Industrials:'#7a5af8', Healthcare:'#12b76a', Financials:'#667085', Other:'#ee46bc', Cash:'#98a2b3' };
 const PALETTE = ['#4658e8','#0ba5ec','#f79009','#ee46bc','#7a5af8','#12b76a','#f04438','#16b364','#eaaa08','#667085','#2e90fa','#98a2b3'];
-// Auto-strategy universe with base weights (high risk / high reward)
 const AUTO_UNIVERSE = [
   { t:'NVDA', w:.15 }, { t:'AMD', w:.09 }, { t:'MU', w:.09 }, { t:'AVGO', w:.08 },
   { t:'PLTR', w:.09 }, { t:'CRWV', w:.07 }, { t:'TSLA', w:.07 }, { t:'META', w:.09 },
   { t:'GOOGL', w:.10 }, { t:'AMZN', w:.09 }, { t:'VRT', w:.05 }
 ];
-
-// Seed = state carried over from the Claude-managed simulation (as of 2026-07-01)
 const SEED = {
-  startDate: '2026-07-01', capital: 1000000, spyBase: 747.25, mode: 'AI-ASSISTED',
+  startDate: '2026-07-01', capital: 1000000, spyBase: 747.25, mode: 'modeAI',
   cash: 30075.02,
   positions: [
     { t:'NVDA',  sh:703, cost:199.03 }, { t:'GOOGL', sh:307, cost:357.37 },
@@ -250,8 +344,9 @@ const SEED = {
   history: [{ d:'2026-07-01', v:1000000, s:747.25 }]
 };
 
-let S = null;
-function loadState() { try { S = JSON.parse(localStorage.getItem(LS_KEY)); } catch(e) {} if (!S) { S = JSON.parse(JSON.stringify(SEED)); saveState(); } }
+let S = null, LAST = null;
+function loadState() { try { S = JSON.parse(localStorage.getItem(LS_KEY)); } catch(e) {} if (!S) { S = JSON.parse(JSON.stringify(SEED)); saveState(); }
+  if (S.mode === 'AI-ASSISTED') S.mode = 'modeAI'; if (S.mode === 'AUTO STRATEGY') S.mode = 'modeAuto'; if (S.mode === 'MANUAL') S.mode = 'modeMan'; }
 function saveState() { localStorage.setItem(LS_KEY, JSON.stringify(S)); }
 function apiKey() { return localStorage.getItem(LS_API) || ''; }
 
@@ -261,13 +356,14 @@ const fmtPct = n => (n>=0?'+':'') + n.toFixed(2) + '%';
 const sign$ = n => (n>=0?'+':'−') + fmt$(Math.abs(n));
 const cls = n => n > 0.0001 ? 'up' : (n < -0.0001 ? 'down' : 'flat');
 const today = () => new Date().toISOString().slice(0,10);
-const sectorOf = t => SECTORS[t] || 'Other';
+const sectorOf = x => SECTORS[x] || 'Other';
+const secLabel = s => LANG === 'ar' ? (SECTOR_AR[s] || s) : s;
 
 async function quote(sym) {
   const r = await fetch('https://finnhub.io/api/v1/quote?symbol=' + encodeURIComponent(sym) + '&token=' + apiKey());
   if (!r.ok) throw new Error('HTTP ' + r.status);
   const j = await r.json();
-  if (!j || !j.c) throw new Error('no data for ' + sym);
+  if (!j || !j.c) throw new Error('no data');
   return { price: j.c, dayPct: j.dp ?? 0, prev: j.pc || j.c };
 }
 async function quoteAll(syms) {
@@ -276,40 +372,37 @@ async function quoteAll(syms) {
   return out;
 }
 
-/* ---------- rendering ---------- */
+/* ---------- charts ---------- */
 let allocChart=null, perfChart=null, moversChart=null, allocMode='ticker', allocData=null;
-
 function drawAlloc() {
   const src = allocMode === 'ticker' ? allocData.tickers : allocData.sectors;
+  const labels = allocMode === 'ticker' ? src.labels : src.labels.map(secLabel);
   const colors = allocMode === 'ticker' ? PALETTE : src.labels.map(l => SECTOR_COLORS[l] || '#98a2b3');
   if (allocChart) allocChart.destroy();
   allocChart = new Chart(document.getElementById('alloc'), {
     type: 'doughnut',
-    data: { labels: src.labels, datasets: [{ data: src.data, backgroundColor: colors, borderWidth: 2, borderColor: '#fff', hoverOffset: 6 }] },
+    data: { labels, datasets: [{ data: src.data, backgroundColor: colors, borderWidth: 2, borderColor: '#fff', hoverOffset: 6 }] },
     options: { responsive: true, maintainAspectRatio: false, cutout: '62%',
-      plugins: { legend: { position: 'right', labels: { boxWidth: 9, font: { size: 10.5 }, color: '#5c6470' } },
-        tooltip: { callbacks: { label: c => c.label + ': ' + fmt$(c.parsed) + ' (' + (c.parsed/allocData.total*100).toFixed(1) + '%)' } } } }
+      plugins: { legend: { position: 'right', rtl: LANG==='ar', labels: { boxWidth: 9, font: { size: 10.5 }, color: '#5c6470' } },
+        tooltip: { rtl: LANG==='ar', callbacks: { label: c => c.label + ': ' + fmt$(c.parsed) + ' (' + (c.parsed/allocData.total*100).toFixed(1) + '%)' } } } }
   });
 }
 document.getElementById('btnTk').onclick = () => { allocMode='ticker'; btnTk.classList.add('on'); btnSec.classList.remove('on'); if (allocData) drawAlloc(); };
 document.getElementById('btnSec').onclick = () => { allocMode='sector'; btnSec.classList.add('on'); btnTk.classList.remove('on'); if (allocData) drawAlloc(); };
 
 function renderTradeLog() {
+  const actLabel = a => a === 'BUY' ? t('buy') : a === 'SELL' ? t('sell') : 'RESET';
   document.getElementById('tradelog').innerHTML = S.trades.length ? S.trades.map(x =>
-    '<div class="trade"><span class="ta ' + (x.a==='BUY'?'b':x.a==='SELL'?'s':'r') + '">' + x.a + '</span>' +
-    '<span class="tt">' + (x.t||'') + '</span>' +
+    '<div class="trade"><span class="ta ' + (x.a==='BUY'?'b':x.a==='SELL'?'s':'r') + '">' + actLabel(x.a) + '</span>' +
+    '<span class="tt num">' + (x.t||'') + '</span>' +
     (x.sh ? '<span class="td2 num">' + x.sh + ' × ' + fmt$2(x.px) + ' = ' + fmt$(x.sh*x.px) + '</span>' : '') +
-    '<span class="tw">' + x.why + '</span><span class="tdate">' + x.d + '</span></div>').join('')
-    : '<div class="spinner">No trades yet — use the Trade box above.</div>';
+    '<span class="tw">' + x.why + '</span><span class="tdate num">' + x.d + '</span></div>').join('')
+    : '<div class="spinner">' + t('noTrades') + '</div>';
 }
 
-async function refresh() {
-  if (!apiKey()) { document.getElementById('keyModal').classList.add('show'); return; }
-  document.getElementById('asof').textContent = 'fetching live quotes…';
-  const syms = S.positions.map(p => p.t).concat(['SPY']);
-  const q = await quoteAll(syms);
-  const spy = q['SPY'];
-
+/* ---------- render ---------- */
+function render() {
+  const { q, spy } = LAST;
   let invested = 0, dayChange = 0, statusLines = [], failures = [];
   S.positions.forEach(p => {
     const x = q[p.t];
@@ -317,62 +410,60 @@ async function refresh() {
     p.value = p.sh * p.live;
     invested += p.value;
     dayChange += x ? p.sh * (x.price - x.prev) : 0;
-    if (!x) failures.push(p.t); else statusLines.push('<b>' + p.t + '</b> $' + x.price.toFixed(2) + ' <span class="' + cls(x.dayPct) + '">' + fmtPct(x.dayPct) + '</span>');
+    if (!x) failures.push(p.t);
+    else statusLines.push('<b>' + p.t + '</b> <span class="num">$' + x.price.toFixed(2) + '</span> <span class="' + cls(x.dayPct) + ' num">' + fmtPct(x.dayPct) + '</span>');
   });
   const total = invested + S.cash;
   const totRetPct = (total / S.capital - 1) * 100;
   const dayPct = total - dayChange !== 0 ? dayChange / (total - dayChange) * 100 : 0;
   const pl = total - S.capital;
 
-  document.getElementById('modebadge').textContent = S.mode;
+  document.getElementById('modebadge').textContent = t(S.mode);
   document.getElementById('totval').textContent = fmt$(total);
   const dc = document.getElementById('daychip');
-  dc.textContent = 'today ' + sign$(dayChange) + ' (' + fmtPct(dayPct) + ')'; dc.className = 'chip num ' + (dayChange>=0?'up':'down');
+  dc.innerHTML = t('today') + ' <span class="num">' + sign$(dayChange) + ' (' + fmtPct(dayPct) + ')</span>'; dc.className = 'chip ' + (dayChange>=0?'up':'down');
   const tc = document.getElementById('totchip');
-  tc.textContent = 'since ' + S.startDate + ' ' + fmtPct(totRetPct); tc.className = 'chip num ' + (pl>=0?'up':'down');
+  tc.innerHTML = t('since') + ' <span class="num">' + S.startDate + '</span> <span class="num">' + fmtPct(totRetPct) + '</span>'; tc.className = 'chip ' + (pl>=0?'up':'down');
   let spyRet = null, alpha = 0;
   if (spy) { spyRet = (spy.price / S.spyBase - 1) * 100; alpha = totRetPct - spyRet; }
   const ac = document.getElementById('alphachip');
-  ac.textContent = 'vs S&P 500 ' + (spyRet===null?'n/a':fmtPct(alpha) + ' alpha'); ac.className = 'chip num ' + (alpha>=0?'up':'down');
-  document.getElementById('asof').textContent = 'valued ' + new Date().toLocaleString() + ' · auto-refreshes every 5 min';
+  ac.innerHTML = t('vsSpy') + ' ' + (spyRet===null ? t('na') : '<span class="num">' + fmtPct(alpha) + '</span> ' + t('alpha')); ac.className = 'chip ' + (alpha>=0?'up':'down');
+  document.getElementById('asof').textContent = t('valued') + ' ' + new Date().toLocaleString(LANG==='ar'?'ar':'en-US') + ' · ' + t('autoRef');
 
   const pv = document.getElementById('plval'); pv.textContent = sign$(pl); pv.className = 'v num ' + cls(pl);
-  document.getElementById('plpct').textContent = fmtPct(totRetPct) + ' on ' + fmt$(S.capital);
-  const sr = document.getElementById('spyret'); sr.textContent = spyRet===null?'n/a':fmtPct(spyRet); sr.className = 'v num ' + cls(spyRet||0);
-  document.getElementById('spypx').textContent = spy ? 'SPY $' + spy.price.toFixed(2) : 'quote unavailable';
+  document.getElementById('plpct').textContent = fmtPct(totRetPct) + ' ' + t('onCapital') + ' ' + fmt$(S.capital);
+  const sr = document.getElementById('spyret'); sr.textContent = spyRet===null ? t('na') : fmtPct(spyRet); sr.className = 'v num ' + cls(spyRet||0);
+  document.getElementById('spypx').textContent = spy ? 'SPY $' + spy.price.toFixed(2) : t('quoteUnavail');
   document.getElementById('invval').textContent = fmt$(invested);
-  document.getElementById('invw').textContent = total ? (invested/total*100).toFixed(1) + '% deployed · ' + S.positions.length + ' positions' : '';
+  document.getElementById('invw').textContent = total ? (invested/total*100).toFixed(1) + '% ' + t('deployed') + ' · ' + S.positions.length + ' ' + t('posCount') : '';
   document.getElementById('cash').textContent = fmt$(S.cash);
-  document.getElementById('cashw').textContent = total ? (S.cash/total*100).toFixed(1) + '% of portfolio' : '';
+  document.getElementById('cashw').textContent = total ? (S.cash/total*100).toFixed(1) + '% ' + t('ofPortfolio') : '';
 
-  // positions
   if (S.positions.length) {
     const rows = S.positions.slice().sort((a,b) => b.value - a.value).map(p => {
       const ppl = p.value - p.sh * p.cost, plPct = (p.live / p.cost - 1) * 100;
-      return '<tr><td><span class="tk"><span class="sd" style="background:' + (SECTOR_COLORS[sectorOf(p.t)]) + '"></span>' + p.t + (p.failed?' ⚠':'') + '</span></td>' +
+      return '<tr><td><span class="tk"><span class="sd" style="background:' + (SECTOR_COLORS[sectorOf(p.t)]) + '"></span><span class="num">' + p.t + '</span>' + (p.failed?' ⚠':'') + '</span></td>' +
         '<td>' + p.sh + '</td><td>' + fmt$2(p.cost) + '</td><td>' + fmt$2(p.live) + '</td>' +
-        '<td><span class="pill ' + cls(p.dayPct) + '">' + fmtPct(p.dayPct) + '</span></td>' +
+        '<td><span class="pill num ' + cls(p.dayPct) + '">' + fmtPct(p.dayPct) + '</span></td>' +
         '<td><b>' + fmt$(p.value) + '</b></td>' +
-        '<td class="' + cls(ppl) + '">' + sign$(ppl) + ' (' + fmtPct(plPct) + ')</td>' +
+        '<td class="' + cls(ppl) + '"><span class="num">' + sign$(ppl) + ' (' + fmtPct(plPct) + ')</span></td>' +
         '<td>' + (p.value/total*100).toFixed(1) + '%</td></tr>';
     }).join('');
     document.getElementById('tablebox').innerHTML =
-      '<div style="overflow-x:auto"><table><thead><tr><th>Ticker</th><th>Sh</th><th>Avg Cost</th><th>Price</th><th>Day</th><th>Value</th><th>Total P&L</th><th>Wt</th></tr></thead><tbody>' + rows +
-      '<tr class="cashrow"><td><span class="tk"><span class="sd" style="background:#98a2b3"></span>CASH</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td><b>' + fmt$(S.cash) + '</b></td><td>—</td><td>' + (S.cash/total*100).toFixed(1) + '%</td></tr></tbody></table></div>';
+      '<div class="tablewrap"><table><thead><tr><th>' + t('thTicker') + '</th><th>' + t('thSh') + '</th><th>' + t('thAvg') + '</th><th>' + t('thPx') + '</th><th>' + t('thDay') + '</th><th>' + t('thVal') + '</th><th>' + t('thPL') + '</th><th>' + t('thWt') + '</th></tr></thead><tbody>' + rows +
+      '<tr class="cashrow"><td><span class="tk"><span class="sd" style="background:#98a2b3"></span>' + t('cash') + '</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td><b>' + fmt$(S.cash) + '</b></td><td>—</td><td>' + (S.cash/total*100).toFixed(1) + '%</td></tr></tbody></table></div>';
   } else {
-    document.getElementById('tablebox').innerHTML = '<div class="spinner">All cash — no positions yet.</div>';
+    document.getElementById('tablebox').innerHTML = '<div class="spinner">' + t('allCash') + '</div>';
   }
 
-  // allocation
   const sec = {};
   S.positions.forEach(p => { const s = sectorOf(p.t); sec[s] = (sec[s]||0) + p.value; });
   if (S.cash > 0) sec['Cash'] = S.cash;
   allocData = { total,
-    tickers: { labels: S.positions.map(p=>p.t).concat(S.cash>0?['Cash']:[]), data: S.positions.map(p=>Math.round(p.value)).concat(S.cash>0?[Math.round(S.cash)]:[]) },
+    tickers: { labels: S.positions.map(p=>p.t).concat(S.cash>0?[t('cash')]:[]), data: S.positions.map(p=>Math.round(p.value)).concat(S.cash>0?[Math.round(S.cash)]:[]) },
     sectors: { labels: Object.keys(sec), data: Object.values(sec).map(Math.round) } };
   drawAlloc();
 
-  // movers
   const mv = S.positions.slice().sort((a,b) => b.dayPct - a.dayPct);
   if (moversChart) moversChart.destroy();
   moversChart = new Chart(document.getElementById('movers'), {
@@ -380,12 +471,11 @@ async function refresh() {
     data: { labels: mv.map(p=>p.t), datasets: [{ data: mv.map(p=>p.dayPct),
       backgroundColor: mv.map(p => p.dayPct>=0 ? 'rgba(13,148,87,.85)' : 'rgba(217,45,32,.85)'), borderRadius: 5, borderSkipped: false, barPercentage: .7 }] },
     options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => fmtPct(c.parsed.x) + ' today' } } },
+      plugins: { legend: { display: false }, tooltip: { rtl: LANG==='ar', callbacks: { label: c => fmtPct(c.parsed.x) + ' ' + t('todayPct') } } },
       scales: { x: { ticks: { callback: v => v + '%', font:{size:10}, color:'#9aa1ac' }, grid: { color:'#f2f3f6' } },
                 y: { ticks: { font:{size:11}, color:'#10131a' }, grid: { display:false } } } }
   });
 
-  // history
   const d = today();
   S.history = S.history.filter(x => x.d !== d || x.d === S.startDate);
   if (d !== S.startDate) S.history.push({ d, v: Math.round(total), s: spy ? spy.price : null });
@@ -399,50 +489,58 @@ async function refresh() {
     type: 'line',
     data: { labels: S.history.map(x=>x.d),
       datasets: [
-        { label:'Portfolio', data: S.history.map(x => (x.v / S.capital - 1) * 100), borderColor:'#4658e8', borderWidth:2.5, backgroundColor:grad, fill:true, tension:.3, pointRadius:3 },
+        { label: LANG==='ar'?'المحفظة':'Portfolio', data: S.history.map(x => (x.v / S.capital - 1) * 100), borderColor:'#4658e8', borderWidth:2.5, backgroundColor:grad, fill:true, tension:.3, pointRadius:3 },
         { label:'S&P 500', data: S.history.map(x => x.s ? (x.s / S.spyBase - 1) * 100 : null), borderColor:'#9aa1ac', borderWidth:2, borderDash:[5,4], tension:.3, pointRadius:2.5, fill:false } ] },
     options: { responsive:true, maintainAspectRatio:false,
-      plugins: { legend: { labels: { boxWidth:10, boxHeight:3, font:{size:11}, color:'#5c6470' } },
-        tooltip: { callbacks: { label: c => c.dataset.label + ': ' + fmtPct(c.parsed.y) } } },
+      plugins: { legend: { rtl: LANG==='ar', labels: { boxWidth:10, boxHeight:3, font:{size:11}, color:'#5c6470' } },
+        tooltip: { rtl: LANG==='ar', callbacks: { label: c => c.dataset.label + ': ' + fmtPct(c.parsed.y) } } },
       scales: { y: { ticks: { callback: v => v + '%', font:{size:10}, color:'#9aa1ac' }, grid:{color:'#f2f3f6'} },
                 x: { ticks: { font:{size:10}, color:'#9aa1ac', maxTicksLimit:8 }, grid:{display:false} } } }
   });
 
-  document.getElementById('status').innerHTML = (failures.length ? '<b>No quote:</b> ' + failures.join(', ') + '<br>' : '') + statusLines.join('<br>');
+  document.getElementById('status').innerHTML = (failures.length ? '<b>' + t('noQuote') + ':</b> ' + failures.join(', ') + '<br>' : '') + statusLines.join('<br>');
   renderTradeLog();
+}
+
+async function refresh() {
+  if (!apiKey()) { document.getElementById('keyModal').classList.add('show'); return; }
+  document.getElementById('asof').textContent = t('fetching');
+  const q = await quoteAll(S.positions.map(p => p.t).concat(['SPY']));
+  LAST = { q, spy: q['SPY'] };
+  render();
 }
 
 /* ---------- manual trading ---------- */
 document.getElementById('tGo').onclick = async () => {
   const msg = document.getElementById('trademsg');
   const action = document.getElementById('tAction').value;
-  const t = document.getElementById('tTicker').value.trim().toUpperCase();
+  const tk = document.getElementById('tTicker').value.trim().toUpperCase();
   const unit = document.getElementById('tUnit').value;
   const qty = parseFloat(document.getElementById('tQty').value);
   msg.textContent = ''; msg.className = '';
-  if (!t || !qty || qty <= 0) { msg.textContent = 'Enter a ticker and a positive amount.'; msg.className = 'down'; return; }
-  msg.textContent = 'Getting live quote for ' + t + '…';
+  if (!tk || !qty || qty <= 0) { msg.textContent = t('mEnterTicker'); msg.className = 'down'; return; }
+  msg.textContent = t('mGetting') + ' ' + tk + '…';
   let x;
-  try { x = await quote(t); } catch(e) { msg.textContent = 'No quote for "' + t + '" — check the ticker.'; msg.className = 'down'; return; }
+  try { x = await quote(tk); } catch(e) { msg.textContent = t('mNoQuote') + ' "' + tk + '" ' + t('mCheckTicker'); msg.className = 'down'; return; }
   const px = x.price;
   let sh = unit === 'sh' ? Math.floor(qty) : Math.floor(qty / px);
-  if (sh < 1) { msg.textContent = 'Amount too small for 1 share at ' + fmt$2(px) + '.'; msg.className = 'down'; return; }
-  const pos = S.positions.find(p => p.t === t);
+  if (sh < 1) { msg.textContent = t('mTooSmall') + ' ' + fmt$2(px); msg.className = 'down'; return; }
+  const pos = S.positions.find(p => p.t === tk);
   if (action === 'BUY') {
     const costV = sh * px;
-    if (costV > S.cash + 0.01) { msg.textContent = 'Not enough cash: need ' + fmt$2(costV) + ', have ' + fmt$2(S.cash) + '.'; msg.className = 'down'; return; }
+    if (costV > S.cash + 0.01) { msg.textContent = t('mNoCash') + ' ' + fmt$2(costV) + '، ' + t('mHave') + ' ' + fmt$2(S.cash); msg.className = 'down'; return; }
     S.cash = Math.round((S.cash - costV) * 100) / 100;
     if (pos) { const basis = pos.sh * pos.cost + costV; pos.sh += sh; pos.cost = Math.round(basis / pos.sh * 10000) / 10000; }
-    else S.positions.push({ t, sh, cost: px });
-    S.trades.unshift({ d: today(), a: 'BUY', t, sh, px, why: 'Manual order' });
-    msg.textContent = 'Bought ' + sh + ' ' + t + ' @ ' + fmt$2(px) + ' (' + fmt$2(sh*px) + ')'; msg.className = 'up';
+    else S.positions.push({ t: tk, sh, cost: px });
+    S.trades.unshift({ d: today(), a: 'BUY', t: tk, sh, px, why: t('manualOrder') });
+    msg.textContent = t('mBought') + ' ' + sh + ' ' + tk + ' @ ' + fmt$2(px); msg.className = 'up';
   } else {
-    if (!pos || pos.sh < sh) { msg.textContent = 'You only hold ' + (pos ? pos.sh : 0) + ' shares of ' + t + '.'; msg.className = 'down'; return; }
+    if (!pos || pos.sh < sh) { msg.textContent = t('mOnlyHold') + ' ' + (pos ? pos.sh : 0) + ' ' + t('mSharesOf') + ' ' + tk; msg.className = 'down'; return; }
     S.cash = Math.round((S.cash + sh * px) * 100) / 100;
     pos.sh -= sh;
     if (pos.sh === 0) S.positions = S.positions.filter(p => p !== pos);
-    S.trades.unshift({ d: today(), a: 'SELL', t, sh, px, why: 'Manual order' });
-    msg.textContent = 'Sold ' + sh + ' ' + t + ' @ ' + fmt$2(px); msg.className = 'up';
+    S.trades.unshift({ d: today(), a: 'SELL', t: tk, sh, px, why: t('manualOrder') });
+    msg.textContent = t('mSold') + ' ' + sh + ' ' + tk + ' @ ' + fmt$2(px); msg.className = 'up';
   }
   saveState(); refresh();
 };
@@ -453,16 +551,15 @@ document.getElementById('chCancel').onclick = () => document.getElementById('res
 
 async function doReset(mode) {
   document.getElementById('resetModal').classList.remove('show');
-  document.getElementById('asof').textContent = 'resetting — fetching live prices…';
+  document.getElementById('asof').textContent = t('resetting');
   const spyQ = await quoteAll(['SPY']);
   const spyPx = spyQ['SPY'] ? spyQ['SPY'].price : null;
   const d = today();
-  S = { startDate: d, capital: 1000000, spyBase: spyPx || 0, mode: mode === 'auto' ? 'AUTO STRATEGY' : 'MANUAL',
+  S = { startDate: d, capital: 1000000, spyBase: spyPx || 0, mode: mode === 'auto' ? 'modeAuto' : 'modeMan',
         cash: 1000000, positions: [], trades: [], history: [{ d, v: 1000000, s: spyPx }] };
-  S.trades.unshift({ d, a: 'RESET', t: '', sh: 0, px: 0, why: 'Fresh $1,000,000 — ' + (mode === 'auto' ? 'auto high-risk strategy allocation' : 'manual mode, all cash') });
+  S.trades.unshift({ d, a: 'RESET', t: '', sh: 0, px: 0, why: mode === 'auto' ? t('resetWhyAuto') : t('resetWhyMan') });
   if (mode === 'auto') {
     const q = await quoteAll(AUTO_UNIVERSE.map(u => u.t));
-    // dip-tilt: +25% weight if down ≥3% today, -20% if up ≥5%
     let adj = AUTO_UNIVERSE.map(u => {
       const x = q[u.t];
       if (!x) return { ...u, w: 0 };
@@ -471,7 +568,7 @@ async function doReset(mode) {
       return { ...u, w, px: x.price, dp: x.dayPct };
     }).filter(u => u.w > 0);
     const wsum = adj.reduce((s,u) => s + u.w, 0);
-    adj.forEach(u => u.w = u.w / wsum * 0.97); // target 97% deployed
+    adj.forEach(u => u.w = u.w / wsum * 0.97);
     adj.forEach(u => {
       const sh = Math.floor(1000000 * u.w / u.px);
       if (sh < 1) return;
@@ -479,7 +576,7 @@ async function doReset(mode) {
       S.cash = Math.round((S.cash - v) * 100) / 100;
       S.positions.push({ t: u.t, sh, cost: u.px });
       S.trades.unshift({ d, a: 'BUY', t: u.t, sh, px: u.px,
-        why: 'Auto strategy: base ' + (u.w*100).toFixed(1) + '%' + (u.dp <= -3 ? ' (boosted — dip ' + fmtPct(u.dp) + ' today)' : u.dp >= 5 ? ' (trimmed — spike ' + fmtPct(u.dp) + ' today)' : '') });
+        why: t('autoWhy') + ' ' + (u.w*100).toFixed(1) + '% ' + (u.dp <= -3 ? t('boosted') + ' ' + fmtPct(u.dp) + ')' : u.dp >= 5 ? t('trimmed') + ' ' + fmtPct(u.dp) + ')' : '') });
     });
   }
   saveState(); refresh();
@@ -492,14 +589,16 @@ document.getElementById('btnKey').onclick = () => document.getElementById('keyMo
 document.getElementById('keySave').onclick = async () => {
   const k = document.getElementById('keyInput').value.trim();
   const err = document.getElementById('keyErr');
-  if (!k) { err.textContent = 'Paste a key first.'; return; }
-  err.textContent = 'Testing key…';
+  if (!k) { err.textContent = t('mKeyFirst'); return; }
+  err.textContent = t('mKeyTest');
   localStorage.setItem(LS_API, k);
   try { await quote('AAPL'); err.textContent = ''; document.getElementById('keyModal').classList.remove('show'); refresh(); }
-  catch(e) { localStorage.removeItem(LS_API); err.textContent = 'Key didn\'t work (' + e.message + '). Double-check and try again.'; }
+  catch(e) { localStorage.removeItem(LS_API); err.textContent = t('mKeyBad'); }
 };
 
 loadState();
+applyLang();
+renderTradeLog();
 refresh();
 setInterval(refresh, 5 * 60 * 1000);
 </script>
