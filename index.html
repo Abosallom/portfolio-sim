@@ -229,7 +229,7 @@ const I18N = {
     perf:'Performance vs S&P 500', alloc:'Allocation', byTicker:'Ticker', bySector:'Sector',
     positions:'Positions', movers:"Today's Movers", quotes:'Quote Feed', tradeLog:'Trade Log', loading:'Loading…',
     keyTitle:'Connect live prices', keySave:'Save & start',
-    keyBody:'This simulator uses real US market quotes from Finnhub (free). Get a key in ~1 minute: open <a href="https://finnhub.io/register" target="_blank"><b>finnhub.io/register</b></a>, sign up, copy your API key and paste it here. It is stored only in your browser.',
+    keyBody:'Optional — the page already works without a key using a free public quote relay. For faster, more reliable quotes you can add a free Finnhub key: open <a href="https://finnhub.io/register" target="_blank"><b>finnhub.io/register</b></a>, sign up, copy your API key and paste it here. It is stored only in your browser.',
     resetTitle:'Reset to a fresh $1,000,000',
     resetWarn:'This wipes the current simulation — positions, trade log, and performance history — and starts over at today\'s real prices.',
     autoTitle:'🤖 Auto strategy (high risk / high reward)',
@@ -242,7 +242,7 @@ const I18N = {
     valued:'valued', autoRef:'auto-refreshes every 5 min', fetching:'fetching live quotes…', resetting:'resetting — fetching live prices…',
     allCash:'All cash — no positions yet.', noTrades:'No trades yet — use the Trade box above.',
     noQuote:'No quote', quoteUnavail:'quote unavailable',
-    footnote:'Simulation — no real money, not financial advice. Live quotes by <a href="https://finnhub.io" target="_blank">Finnhub</a> (free key). All state is stored in this browser only — clearing site data erases the simulation. Auto-refreshes every 5 minutes.',
+    footnote:'Simulation — no real money, not financial advice. Live quotes via Yahoo Finance (no setup) or <a href="https://finnhub.io" target="_blank">Finnhub</a> (optional free key, ⚙). All state is stored in this browser only — clearing site data erases the simulation. Auto-refreshes every 5 minutes.',
     mEnterTicker:'Enter a ticker and a positive amount.', mGetting:'Getting live quote for', mNoQuote:'No quote for', mCheckTicker:'— check the ticker.',
     mTooSmall:'Amount too small for 1 share at', mNoCash:'Not enough cash: need', mHave:'have', mBought:'Bought', mSold:'Sold', mOnlyHold:'You only hold', mSharesOf:'shares of',
     mKeyFirst:'Paste a key first.', mKeyTest:'Testing key…', mKeyBad:'Key didn\'t work. Double-check and try again.',
@@ -257,7 +257,7 @@ const I18N = {
     perf:'الأداء مقابل S&P 500', alloc:'التوزيع', byTicker:'السهم', bySector:'القطاع',
     positions:'المراكز', movers:'تحركات اليوم', quotes:'الأسعار المباشرة', tradeLog:'سجل الصفقات', loading:'جارٍ التحميل…',
     keyTitle:'تفعيل الأسعار المباشرة', keySave:'حفظ وبدء',
-    keyBody:'يستخدم هذا المحاكي أسعاراً حقيقية للسوق الأمريكي من Finnhub (مجاناً). احصل على مفتاح خلال دقيقة: افتح <a href="https://finnhub.io/register" target="_blank"><b>finnhub.io/register</b></a> وسجّل، ثم انسخ مفتاح API والصقه هنا. يُحفظ في متصفحك فقط.',
+    keyBody:'اختياري — الصفحة تعمل بدون مفتاح عبر ناقل أسعار عام مجاني. لأسعار أسرع وأكثر موثوقية يمكنك إضافة مفتاح Finnhub مجاني: افتح <a href="https://finnhub.io/register" target="_blank"><b>finnhub.io/register</b></a> وسجّل، ثم انسخ مفتاح API والصقه هنا. يُحفظ في متصفحك فقط.',
     resetTitle:'إعادة التعيين إلى مليون دولار جديد',
     resetWarn:'سيمسح هذا المحاكاة الحالية — المراكز وسجل الصفقات وتاريخ الأداء — ويبدأ من جديد بأسعار اليوم الحقيقية.',
     autoTitle:'🤖 استراتيجية تلقائية (مخاطرة عالية / عائد عالٍ)',
@@ -270,7 +270,7 @@ const I18N = {
     valued:'آخر تقييم', autoRef:'يتحدّث تلقائياً كل ٥ دقائق', fetching:'جارٍ جلب الأسعار المباشرة…', resetting:'جارٍ إعادة التعيين وجلب الأسعار…',
     allCash:'كل الرصيد نقدي — لا مراكز بعد.', noTrades:'لا صفقات بعد — استخدم صندوق التداول أعلاه.',
     noQuote:'لا يوجد سعر', quoteUnavail:'السعر غير متاح',
-    footnote:'محاكاة — بدون أموال حقيقية وليست نصيحة استثمارية. الأسعار المباشرة من <a href="https://finnhub.io" target="_blank">Finnhub</a> (مفتاح مجاني). تُحفظ كل البيانات في هذا المتصفح فقط — مسح بيانات الموقع يمحو المحاكاة. تحديث تلقائي كل ٥ دقائق.',
+    footnote:'محاكاة — بدون أموال حقيقية وليست نصيحة استثمارية. الأسعار المباشرة عبر Yahoo Finance (بدون إعداد) أو <a href="https://finnhub.io" target="_blank">Finnhub</a> (مفتاح مجاني اختياري، ⚙). تُحفظ كل البيانات في هذا المتصفح فقط — مسح بيانات الموقع يمحو المحاكاة. تحديث تلقائي كل ٥ دقائق.',
     mEnterTicker:'أدخل رمز السهم ومبلغاً موجباً.', mGetting:'جارٍ جلب السعر المباشر لـ', mNoQuote:'لا يوجد سعر لـ', mCheckTicker:'— تحقق من الرمز.',
     mTooSmall:'المبلغ أقل من سعر سهم واحد عند', mNoCash:'النقد غير كافٍ: المطلوب', mHave:'المتاح', mBought:'تم شراء', mSold:'تم بيع', mOnlyHold:'لديك فقط', mSharesOf:'سهماً من',
     mKeyFirst:'الصق المفتاح أولاً.', mKeyTest:'جارٍ اختبار المفتاح…', mKeyBad:'المفتاح لم يعمل. تحقق منه وأعد المحاولة.',
@@ -359,12 +359,30 @@ const today = () => new Date().toISOString().slice(0,10);
 const sectorOf = x => SECTORS[x] || 'Other';
 const secLabel = s => LANG === 'ar' ? (SECTOR_AR[s] || s) : s;
 
-async function quote(sym) {
+async function quoteFinnhub(sym) {
   const r = await fetch('https://finnhub.io/api/v1/quote?symbol=' + encodeURIComponent(sym) + '&token=' + apiKey());
   if (!r.ok) throw new Error('HTTP ' + r.status);
   const j = await r.json();
   if (!j || !j.c) throw new Error('no data');
   return { price: j.c, dayPct: j.dp ?? 0, prev: j.pc || j.c };
+}
+// keyless fallback: Yahoo Finance chart API via public CORS relay — works with zero setup
+async function quoteYahoo(sym) {
+  const y = 'https://query1.finance.yahoo.com/v8/finance/chart/' + encodeURIComponent(sym) + '?range=2d&interval=1d';
+  const r = await fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent(y));
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  const j = await r.json();
+  const m = j && j.chart && j.chart.result && j.chart.result[0] && j.chart.result[0].meta;
+  if (!m || !m.regularMarketPrice) throw new Error('no data');
+  const price = m.regularMarketPrice;
+  const prev = m.chartPreviousClose || m.previousClose || price;
+  return { price, dayPct: prev ? (price / prev - 1) * 100 : 0, prev };
+}
+async function quote(sym) {
+  if (apiKey()) {
+    try { return await quoteFinnhub(sym); } catch(e) { return await quoteYahoo(sym); }
+  }
+  return await quoteYahoo(sym);
 }
 async function quoteAll(syms) {
   const out = {};
@@ -503,7 +521,6 @@ function render() {
 }
 
 async function refresh() {
-  if (!apiKey()) { document.getElementById('keyModal').classList.add('show'); return; }
   document.getElementById('asof').textContent = t('fetching');
   const q = await quoteAll(S.positions.map(p => p.t).concat(['SPY']));
   LAST = { q, spy: q['SPY'] };
