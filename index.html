@@ -218,7 +218,7 @@
 
 <script>
 'use strict';
-const LS_KEY = 'v1m_sim_state_v1', LS_API = 'v1m_finnhub_key', LS_LANG = 'v1m_lang';
+const LS_KEY = 'v1m_sim_state_v1', LS_API = 'v1m_finnhub_key', LS_LANG = 'v1m_lang', LS_QUOTES = 'v1m_quote_cache';
 
 /* ---------- i18n ---------- */
 const I18N = {
@@ -384,9 +384,34 @@ async function quote(sym) {
   }
   return await quoteYahoo(sym);
 }
+// ONE batched request for all symbols (Yahoo spark API) — much faster than per-symbol calls
+async function quoteBatchYahoo(syms) {
+  const y = 'https://query1.finance.yahoo.com/v8/finance/spark?symbols=' + encodeURIComponent(syms.join(',')) + '&range=2d&interval=1d';
+  const r = await fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent(y));
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  const j = await r.json();
+  const arr = (j && j.spark && j.spark.result) ? j.spark.result : (Array.isArray(j) ? j : null);
+  if (!arr) throw new Error('bad format');
+  const out = {};
+  arr.forEach(it => {
+    const m = it && it.response && it.response[0] && it.response[0].meta;
+    if (m && m.regularMarketPrice) {
+      const prev = m.chartPreviousClose || m.previousClose || m.regularMarketPrice;
+      out[it.symbol] = { price: m.regularMarketPrice, dayPct: prev ? (m.regularMarketPrice / prev - 1) * 100 : 0, prev };
+    }
+  });
+  return out;
+}
 async function quoteAll(syms) {
   const out = {};
-  await Promise.all(syms.map(async s => { try { out[s] = await quote(s); } catch(e) { out[s] = null; } }));
+  if (apiKey()) {
+    await Promise.all(syms.map(async s => { try { out[s] = await quoteFinnhub(s); } catch(e) { out[s] = null; } }));
+  } else {
+    try { Object.assign(out, await quoteBatchYahoo(syms)); } catch(e) {}
+  }
+  // per-symbol fallback for anything still missing
+  const missing = syms.filter(s => !out[s]);
+  await Promise.all(missing.map(async s => { try { out[s] = await quoteYahoo(s); } catch(e) { out[s] = null; } }));
   return out;
 }
 
@@ -446,7 +471,7 @@ function render() {
   if (spy) { spyRet = (spy.price / S.spyBase - 1) * 100; alpha = totRetPct - spyRet; }
   const ac = document.getElementById('alphachip');
   ac.innerHTML = t('vsSpy') + ' ' + (spyRet===null ? t('na') : '<span class="num">' + fmtPct(alpha) + '</span> ' + t('alpha')); ac.className = 'chip ' + (alpha>=0?'up':'down');
-  document.getElementById('asof').textContent = t('valued') + ' ' + new Date().toLocaleString(LANG==='ar'?'ar':'en-US') + ' · ' + t('autoRef');
+  document.getElementById('asof').textContent = t('valued') + ' ' + new Date(LAST.ts || Date.now()).toLocaleString(LANG==='ar'?'ar':'en-US') + ' · ' + t('autoRef');
 
   const pv = document.getElementById('plval'); pv.textContent = sign$(pl); pv.className = 'v num ' + cls(pl);
   document.getElementById('plpct').textContent = fmtPct(totRetPct) + ' ' + t('onCapital') + ' ' + fmt$(S.capital);
@@ -523,8 +548,16 @@ function render() {
 async function refresh() {
   document.getElementById('asof').textContent = t('fetching');
   const q = await quoteAll(S.positions.map(p => p.t).concat(['SPY']));
-  LAST = { q, spy: q['SPY'] };
+  LAST = { q, spy: q['SPY'], ts: Date.now() };
+  try { localStorage.setItem(LS_QUOTES, JSON.stringify({ ts: LAST.ts, q })); } catch(e) {}
   render();
+}
+// instant paint from cached quotes while fresh ones load in the background
+function renderFromCache() {
+  try {
+    const c = JSON.parse(localStorage.getItem(LS_QUOTES));
+    if (c && c.q) { LAST = { q: c.q, spy: c.q['SPY'], ts: c.ts }; render(); }
+  } catch(e) {}
 }
 
 /* ---------- manual trading ---------- */
@@ -616,6 +649,7 @@ document.getElementById('keySave').onclick = async () => {
 loadState();
 applyLang();
 renderTradeLog();
+renderFromCache();
 refresh();
 setInterval(refresh, 5 * 60 * 1000);
 </script>
